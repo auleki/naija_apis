@@ -9,6 +9,7 @@ const app: Express = express()
 
 // MORGAN Console Logger
 app.use(morgan('dev'))
+app.use(express.json())
 
 const PORT: string | number = process.env.PORT || 3000
 

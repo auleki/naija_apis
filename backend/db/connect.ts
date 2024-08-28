@@ -15,13 +15,13 @@ import {startServer} from "../server";
 // }
 
 export const collections: {apis?: mongoDB.Collection} = {}
-
+export let db: mongoDB.Db;
 export async function connectToDB() {
     try {
         const DB_URL: string = process.env.MONGODB_URL || ''
         const client: mongoDB.MongoClient = new mongoDB.MongoClient(DB_URL)
         await client.connect()
-        const db: mongoDB.Db = client.db(process.env.DB_NAME)
+        db = client.db(process.env.DB_NAME)
         const apiCollection = db.collection('apis')
         collections.apis = apiCollection
         startServer()

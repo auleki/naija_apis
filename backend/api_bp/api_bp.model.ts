@@ -16,7 +16,6 @@ const API_BP_SCHEMA= new Schema<IAPI_BP, API_BP_MODEL>({
     },
     reviews: {
         type: [],
-        required: true
     },
     author: {
         type: String || null,
